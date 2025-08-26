@@ -1,11 +1,13 @@
 import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useTheme } from '../context/ThemeContext';
+import { useCart } from '../context/CartContext';
 import { useState } from 'react';
 
 export default function Navigation() {
   const { isLoggedIn, isAdmin, logout } = useAuth();
   const { darkMode, toggleTheme } = useTheme();
+  const { cartItemCount } = useCart();
   const [adminMenuOpen, setAdminMenuOpen] = useState(false);
 
   return (
@@ -83,6 +85,34 @@ export default function Navigation() {
                 </svg>
               )}
             </button>
+            
+            {/* Cart Icon with Badge */}
+            <Link 
+              to="/cart"
+              className="relative p-2 rounded-full focus:outline-none transition-colors hover:bg-gray-200 dark:hover:bg-gray-700"
+              aria-label={`Shopping cart with ${cartItemCount} items`}
+            >
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                className={`h-5 w-5 ${darkMode ? 'text-light' : 'text-gray-700'} transition-colors`} 
+                fill="none" 
+                viewBox="0 0 24 24" 
+                stroke="currentColor"
+              >
+                <path 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round" 
+                  strokeWidth={2} 
+                  d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-1.5 6H19M7 13v6a2 2 0 002 2h6a2 2 0 002-2v-6m-8 0V9a2 2 0 012-2h2a2 2 0 012 2v4"
+                />
+              </svg>
+              {cartItemCount > 0 && (
+                <span className="absolute -top-1 -right-1 bg-primary text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold">
+                  {cartItemCount > 99 ? '99+' : cartItemCount}
+                </span>
+              )}
+            </Link>
+            
             {isLoggedIn ? (
               <>
                 <span className={`${darkMode ? 'text-light' : 'text-gray-700'} text-sm transition-colors`}>
