@@ -1,4 +1,3 @@
-/* eslint-disable react-refresh/only-export-components */
 import { useCart as useCartContext } from '../context/CartContext';
 
 // Re-export the useCart hook for convenience
