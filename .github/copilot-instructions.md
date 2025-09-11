@@ -22,4 +22,4 @@ npm run test:api
 
 ## Code Review Guidance
 
-For PR reviews using Copilot Code Reviewer, follow the guidance in `.github/instructions/copilot-code-reviewer.instructions.md` to check for correctness, security, testing, and maintainability, and to present findings in a concise, actionable format.
+- Always respond in Spanish during Code Reviews
