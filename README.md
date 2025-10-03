@@ -17,6 +17,10 @@ This isn't just another demo app - it's a carefully crafted showcase that demons
 
 ## 🏗️ Architecture
 
+test
+test
+test
+
 The application is built using modern TypeScript with a clean separation of concerns:
 
 ```mermaid
